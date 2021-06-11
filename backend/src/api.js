@@ -24,6 +24,9 @@ app.use(require('cors')());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+/**
+ * Revised GET todos endpoint to fetch results as paginated
+ */
 app.get('/:page?', async (req, res) => {
   const { page = 0 } = req.params;
   const skip = Number(page * MAX_LIMIT);
@@ -53,6 +56,10 @@ app.post('/', async (req, res) => {
   res.json(todo);
 });
 
+/**
+ * Returned the json instead of response end
+ * for PUT and DELETE methods both.
+ */
 app.put('/:id', async (req, res) => {
   const { id } = req.params;
   const { completed } = req.body;
@@ -78,6 +85,9 @@ app.delete('/:id', async (req, res) => {
   res.json({ message: 'success' });
 });
 
+/**
+ * Sorting endpoint
+ */
 app.post('/sort', async (req, res) => {
   const { todos } = req.body;
 

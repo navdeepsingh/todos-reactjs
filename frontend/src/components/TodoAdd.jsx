@@ -1,14 +1,5 @@
 import React, { useState } from "react";
-import {
-  Container,
-  Typography,
-  Button,
-  Icon,
-  Paper,
-  Box,
-  TextField,
-  Checkbox,
-} from "@material-ui/core";
+import { Button, Icon, Paper, Box, TextField } from "@material-ui/core";
 import { useStyles } from "../styles";
 import { useTodos } from "../context";
 import { client } from "../utils";

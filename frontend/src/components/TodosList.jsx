@@ -1,15 +1,6 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useEffect } from "react";
 import { InView } from "react-intersection-observer";
-import {
-  Container,
-  Typography,
-  Button,
-  Icon,
-  Paper,
-  Box,
-  TextField,
-  Checkbox,
-} from "@material-ui/core";
+import { Paper, Box } from "@material-ui/core";
 import { ReactSortable } from "react-sortablejs";
 import { useStyles } from "../styles";
 import TodoListItem from "./TodoListItem";
@@ -19,15 +10,8 @@ import { client } from "../utils";
 
 function TodosList() {
   const classes = useStyles();
-  const {
-    loading,
-    error,
-    todos,
-    setTodos,
-    hasMore,
-    pageNumber,
-    setPageNumber,
-  } = useTodos();
+  const { loading, error, todos, setTodos, pageNumber, setPageNumber } =
+    useTodos();
 
   /**
    * Send sort request when todos get any update
@@ -55,10 +39,15 @@ function TodosList() {
     <>
       <Paper className={classes.todosContainer}>
         {todos.length > 0 && (
-          <Box display="flex" flexDirection="column" alignItems="stretch">
+          <Box
+            display="flex"
+            flexDirection="column"
+            alignItems="stretch"
+            className={classes.todosWrapper}
+          >
             <ReactSortable list={todos} setList={setTodos}>
               {todos?.map((todo, index) =>
-                index === todos.length - 1 ? (
+                index === todos.length - 1 && todos.length > 19 ? (
                   <InView
                     onChange={prefetchTodos}
                     triggerOnce

@@ -10,8 +10,6 @@ import {
 import userEvent from "@testing-library/user-event";
 import Todos from "../Todos";
 
-//beforeAll(() => jest.spyOn(window, "fetch"));
-
 beforeEach(() => {
   // IntersectionObserver isn't available in test environment
   const mockIntersectionObserver = jest.fn();

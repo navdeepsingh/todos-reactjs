@@ -8,6 +8,15 @@ export const useStyles = makeStyles({
     marginBottom: 30,
     padding: 10,
   },
+  todosWrapper: {
+    "& > div": {
+      "& > div": {
+        "&:last-child": {
+          borderTop: "1px solid #bfbfbf",
+        },
+      },
+    },
+  },
   todoContainer: {
     borderTop: "1px solid #bfbfbf",
     marginTop: 5,

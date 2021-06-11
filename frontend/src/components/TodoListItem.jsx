@@ -1,14 +1,5 @@
 import React from "react";
-import {
-  Container,
-  Typography,
-  Button,
-  Icon,
-  Paper,
-  Box,
-  TextField,
-  Checkbox,
-} from "@material-ui/core";
+import { Typography, Button, Icon, Box, Checkbox } from "@material-ui/core";
 import { useStyles } from "../styles";
 import { useTodos } from "../context";
 import { API_URL } from "../constants";
